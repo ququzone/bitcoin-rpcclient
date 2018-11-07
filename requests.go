@@ -12,7 +12,7 @@ type GetBlockVerbosityRequest struct {
 	Verbosity int
 }
 
-// Params ...
+// Params get rpc params
 func (r *GetBlockVerbosityRequest) Params() []interface{} {
 	params := make([]interface{}, 2)
 	params[0] = r.Hash
