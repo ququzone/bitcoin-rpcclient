@@ -63,3 +63,39 @@ type BlockVerbosity struct {
 	PreviousBlockHash string  `json:"previousblockhash"`
 	NextBlockHash     string  `json:"nextblockhash"`
 }
+
+// GetBlockchainInfo ...
+type GetBlockchainInfo struct {
+	Chain                string  `json:"chain"`
+	Blocks               uint64  `json:"blocks"`
+	Headers              uint64  `json:"headers"`
+	BestBlockHash        string  `json:"bestblockhash"`
+	Difficulty           float64 `json:"difficulty"`
+	MedianTime           int64   `json:"mediantime"`
+	VerificationProgress float64 `json:"verificationprogress"`
+	InitialBlockDownload bool    `json:"initialblockdownload"`
+	ChainWork            string  `json:"chainwork"`
+	SizeOnDisk           uint64  `json:"size_on_disk"`
+	Pruned               bool    `json:"pruned"`
+	SoftForks            []struct {
+		ID      string `json:"id"`
+		Version int    `json:"version"`
+		Reject  struct {
+			Status bool `json:"status"`
+		} `json:"reject"`
+	} `json:"softforks"`
+	BIP9SoftForks struct {
+		CSV struct {
+			Status    string `json:"string"`
+			StartTime int64  `json:"startTime"`
+			Timeout   int64  `json:"timeout"`
+			Since     int64  `json:"since"`
+		} `json:"csv"`
+		Segwit struct {
+			Status    string `json:"string"`
+			StartTime int64  `json:"startTime"`
+			Timeout   int64  `json:"timeout"`
+			Since     int64  `json:"since"`
+		} `json:"segwit"`
+	} `json:"bip9_softforks"`
+}
