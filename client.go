@@ -125,10 +125,10 @@ func (c *Client) sendPost(req Request) *response {
 }
 
 // GetBlockVerbosity ...
-func (c *Client) GetBlockVerbosity(hash string, verbosity int) (*BlockVerbosity, error) {
+func (c *Client) GetBlockVerbosity(hash string) (*BlockVerbosity, error) {
 	response := c.sendPost(&GetBlockVerbosityRequest{
 		Hash:      hash,
-		Verbosity: verbosity,
+		Verbosity: 2,
 	})
 	if response.err != nil {
 		return nil, response.err
