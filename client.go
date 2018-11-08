@@ -131,9 +131,9 @@ func (c *Client) sendRequest(req Request) (interface{}, error) {
 	}
 
 	result := req.Response()
-	err := json.Unmarshal(response.result, &result)
+	err := json.Unmarshal(response.result, result)
 	if err != nil {
 		return nil, err
 	}
-	return &result, nil
+	return result, nil
 }
