@@ -64,8 +64,8 @@ type BlockVerbosity struct {
 	NextBlockHash     string  `json:"nextblockhash"`
 }
 
-// GetBlockchainInfo ...
-type GetBlockchainInfo struct {
+// BlockchainInfo ...
+type BlockchainInfo struct {
 	Chain                string  `json:"chain"`
 	Blocks               uint64  `json:"blocks"`
 	Headers              uint64  `json:"headers"`

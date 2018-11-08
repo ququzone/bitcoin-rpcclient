@@ -4,6 +4,7 @@ package rpcclient
 type Request interface {
 	Params() []interface{}
 	Method() string
+	Response() interface{}
 }
 
 // GetBlockVerbosityRequest ...
@@ -23,4 +24,28 @@ func (r *GetBlockVerbosityRequest) Params() []interface{} {
 // Method get rpc method
 func (r *GetBlockVerbosityRequest) Method() string {
 	return "getblock"
+}
+
+// Response ...
+func (r *GetBlockVerbosityRequest) Response() interface{} {
+	return &BlockVerbosity{}
+}
+
+// GetBlockchainInfoRequest ...
+type GetBlockchainInfoRequest struct {
+}
+
+// Params ...
+func (*GetBlockchainInfoRequest) Params() []interface{} {
+	return nil
+}
+
+// Method ...
+func (*GetBlockchainInfoRequest) Method() string {
+	return "getblockchaininfo"
+}
+
+// Response ...
+func (*GetBlockchainInfoRequest) Response() interface{} {
+	return &BlockchainInfo{}
 }

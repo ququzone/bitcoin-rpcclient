@@ -124,17 +124,13 @@ func (c *Client) sendPost(req Request) *response {
 	return &response{result: res, err: err}
 }
 
-// GetBlockVerbosity ...
-func (c *Client) GetBlockVerbosity(hash string) (*BlockVerbosity, error) {
-	response := c.sendPost(&GetBlockVerbosityRequest{
-		Hash:      hash,
-		Verbosity: 2,
-	})
+func (c *Client) sendRequest(req Request) (interface{}, error) {
+	response := c.sendPost(req)
 	if response.err != nil {
 		return nil, response.err
 	}
 
-	var result BlockVerbosity
+	result := req.Response()
 	err := json.Unmarshal(response.result, &result)
 	if err != nil {
 		return nil, err
