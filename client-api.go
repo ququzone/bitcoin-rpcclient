@@ -17,3 +17,12 @@ func (c *Client) GetBlockchainInfo() (*BlockchainInfo, error) {
 	}
 	return result.(*BlockchainInfo), err
 }
+
+// GetBlockhash ...
+func (c *Client) GetBlockhash(height uint64) (string, error) {
+	result, err := c.sendRequest(&GetBlockhashRequest{height})
+	if err != nil {
+		return "", err
+	}
+	return result.(string), err
+}

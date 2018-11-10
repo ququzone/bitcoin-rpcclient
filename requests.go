@@ -49,3 +49,26 @@ func (*GetBlockchainInfoRequest) Method() string {
 func (*GetBlockchainInfoRequest) Response() interface{} {
 	return &BlockchainInfo{}
 }
+
+// GetBlockhashRequest ...
+type GetBlockhashRequest struct {
+	Height uint64
+}
+
+// Params ...
+func (r *GetBlockhashRequest) Params() []interface{} {
+	params := make([]interface{}, 1)
+	params[0] = r.Height
+	return params
+}
+
+// Method ...
+func (*GetBlockhashRequest) Method() string {
+	return "getblockhash"
+}
+
+// Response ...
+func (*GetBlockhashRequest) Response() interface{} {
+	s := ""
+	return &s
+}
