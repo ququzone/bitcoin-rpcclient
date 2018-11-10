@@ -24,5 +24,5 @@ func (c *Client) GetBlockhash(height uint64) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return result.(string), err
+	return *result.(*string), err
 }
